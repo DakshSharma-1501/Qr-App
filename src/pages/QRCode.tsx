@@ -7,6 +7,7 @@ export const Warehouses: FC = () => {
   // QR States
   const scanner = useRef<QrScanner>()
   const videoEl = useRef<HTMLVideoElement>(null)
+  const qrBoxEl = useRef<HTMLDivElement>(null)
   const [qrOn, setQrOn] = useState<boolean>(true)
 
   // Result
@@ -65,7 +66,10 @@ export const Warehouses: FC = () => {
   return (
     <div className="qr-reader">
       <video ref={videoEl}></video>
-      <div className="scanner-line"></div>
+      <div className="qr-box">
+        <Image src={QrFrame} alt="Qr Frame" />
+        <div className="scanner-line"></div>
+      </div>
       {scannedResult && (
         <p
           style={{
