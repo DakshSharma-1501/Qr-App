@@ -16,10 +16,6 @@ export const Warehouses: FC = () => {
   const onScanSuccess = (result: QrScanner.ScanResult) => {
     console.log('Scan Success:', result)
     setScannedResult(result.data)
-    // Reset the scanner to scan again
-    setTimeout(() => {
-      setScannedResult(undefined)
-    }, 1000) // Adjust the delay as needed
   }
 
   // Fail
@@ -35,8 +31,8 @@ export const Warehouses: FC = () => {
       scanner.current = new QrScanner(videoElement, onScanSuccess, {
         onDecodeError: onScanFail,
         preferredCamera: 'environment',
-        highlightScanRegion: false,
-        highlightCodeOutline: false
+        highlightScanRegion: true,
+        highlightCodeOutline: true
       })
 
       // Start QR Scanner
