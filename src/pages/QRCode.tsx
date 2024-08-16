@@ -16,6 +16,10 @@ export const Warehouses: FC = () => {
   const onScanSuccess = (result: QrScanner.ScanResult) => {
     console.log('Scan Success:', result)
     setScannedResult(result.data)
+    // Reset the scanner to scan again
+    setTimeout(() => {
+      setScannedResult(undefined)
+    }, 1000) // Adjust the delay as needed
   }
 
   // Fail
